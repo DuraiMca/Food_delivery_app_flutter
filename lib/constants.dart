@@ -7,7 +7,7 @@ const List<String> tagItems = <String>[
   ' Rating 4.0+ ',
   ' New Arrivals ',
   ' Pure Veg ',
-  ' Cuisines ',
+  ' Cuisines ', 
   ' More '
 ];
 const List<String> diningtagItems = <String>[
