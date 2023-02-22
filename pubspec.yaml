@@ -37,6 +37,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.2.1
+
+# amplify_api: ^0.6.0 // UNCOMMENT this line after backend is deployed
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/Pages/profilePage.dart';
 
 void main(){
   runApp(const Header());
@@ -45,11 +46,18 @@ class Header extends StatelessWidget {
               ),
             ],
           ),
-          actions: const [
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CircleAvatar(
+          actions:  [
+            
+              
+               IconButton(onPressed:(){
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const profilePage()),
+                    );
+              }, icon: const CircleAvatar(
+                
                 backgroundImage: ExactAssetImage('assets/user.jpeg'),
+
               ),
             ),
           ],

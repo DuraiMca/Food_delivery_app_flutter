@@ -153,3 +153,4 @@ const List<String> mallHubsNames= <String>[
   'west',
   'Hotel Taj',
 ];
+
