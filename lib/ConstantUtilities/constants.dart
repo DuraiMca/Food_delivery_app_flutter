@@ -1,4 +1,4 @@
-const searchHint = "Search Coffee";
+const String searchHint = "Search Coffee";
 const homeTitle = "In the Spotlight";
 const List<String> tagItems = <String>[
   ' Sort ',

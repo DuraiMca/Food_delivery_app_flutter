@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../ConstantUtilities/constants.dart';
 import 'BannerImages.dart';
 import 'GridviewImages.dart';
 import 'ItemTags.dart';
@@ -7,7 +8,7 @@ import 'RestaurentImages.dart';
 import 'SearchWidget.dart';
 import 'SliderImg.dart';
 
-import 'constants.dart';
+
 import 'staticImagesList.dart';
 
 class DashboardBody extends StatelessWidget {

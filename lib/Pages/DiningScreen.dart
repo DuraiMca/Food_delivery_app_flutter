@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../BannerImages.dart';
-import '../GridviewImages.dart';
-import '../ItemTags.dart';
-import '../SearchWidget.dart';
-import '../constants.dart';
-import '../staticImagesList.dart';
+
+import '../ConstantUtilities/constants.dart';
+import '../WidgetItems/BannerImages.dart';
+import '../WidgetItems/GridviewImages.dart';
+import '../WidgetItems/ItemTags.dart';
+import '../WidgetItems/SearchWidget.dart';
+import '../WidgetItems/staticImagesList.dart';
+
 
 
 void main() {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../FirebaseFiles/samplemap.dart';
+
 class RestaurentImages extends StatelessWidget {
   List<String> hotelImages = <String>[];
   List<String> hotelNames = <String>[];
@@ -22,7 +24,14 @@ class RestaurentImages extends StatelessWidget {
             return Card(
               clipBehavior: Clip.antiAlias,
               child:GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (context) =>  samplemap()),
+    
+  );
+
+                },
                 child: Stack(
                   children: <Widget>[
                     Padding(
@@ -75,13 +84,13 @@ class RestaurentImages extends StatelessWidget {
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      const Icon(
+                                    children: const [
+                                      Icon(
                                         Icons.currency_rupee_rounded,
                                         size: 10,
                                         color: Colors.red,
                                       ),
-                                      const Text("200 for one"),
+                                      Text("200 for one"),
                                     ],
                                   ),
                                 ],
