@@ -1,9 +1,12 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:food_delivery_app/FirebaseFiles/samplemap.dart';
 import 'package:food_delivery_app/WidgetItems/DashboardBody.dart';
 import 'package:food_delivery_app/WidgetItems/Header.dart';
 import 'package:food_delivery_app/Pages/DiningScreen.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../Pages/Groceries.dart';
 
 class UiDashBoard extends StatefulWidget {
@@ -17,6 +20,7 @@ class UiDashBoard extends StatefulWidget {
   _UiDashBoardState createState() => _UiDashBoardState();
 }
 
+
 class _UiDashBoardState extends State<UiDashBoard> {
   final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
   int _selectedIndex = 0;
@@ -24,9 +28,14 @@ class _UiDashBoardState extends State<UiDashBoard> {
     const DashboardBody(),
     const DiningScreen(),
     const Groceries(),
+      samplemap(),
   
   ];
-
+@override
+void initState() {
+requestPermission();
+super.initState();
+}
   @override
   Widget build(BuildContext context) {
     Widget child = Container();
@@ -42,6 +51,9 @@ class _UiDashBoardState extends State<UiDashBoard> {
 
       case 2:
         child = _screens[2];
+        break;
+         case 3:
+        child = _screens[3];
         break;
      
     }
@@ -71,6 +83,10 @@ class _UiDashBoardState extends State<UiDashBoard> {
             icon: Icon(Icons.local_grocery_store),
             label: 'Grocery',
           ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.room_service_rounded),
+            label: 'Orders',
+          ),
         ],
         onTap: (index) {
           setState(() {
@@ -82,8 +98,23 @@ class _UiDashBoardState extends State<UiDashBoard> {
   }
 
   void _sendCurrentTabToAnalytics() {
+
     analytics.setCurrentScreen(
-      screenName: '${UiDashBoard.routeName}/tab$_selectedIndex',
+      screenName: '${_screens[_selectedIndex]}',
     );
   }
+  void requestPermission() async {
+Map<Permission, PermissionStatus> statuses = await [
+  Permission.location,
+
+].request();
+
+statuses.values.forEach((element) async {
+  if (element.isDenied || element.isPermanentlyDenied) {
+    await openAppSettings();
+  }
+  
+});
+
+}
 }

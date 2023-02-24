@@ -25,11 +25,7 @@ class RestaurentImages extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               child:GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(
-    MaterialPageRoute(
-      builder: (context) =>  samplemap()),
-    
-  );
+                  
 
                 },
                 child: Stack(
