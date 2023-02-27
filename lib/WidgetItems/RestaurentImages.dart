@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../FirebaseFiles/samplemap.dart';
+import '../FirebaseFiles/googleMapUI.dart';
 
 class RestaurentImages extends StatelessWidget {
   List<String> hotelImages = <String>[];

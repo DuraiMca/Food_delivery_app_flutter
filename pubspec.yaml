@@ -45,6 +45,9 @@ dependencies:
   provider: ^6.0.5
   geolocator: ^9.0.2
   google_maps_webservice: ^0.0.19
+  flutter_polyline_points: ^1.0.0
+  dio: ^5.0.1
+  http: ^0.13.5
 
 # amplify_api: ^0.6.0 // UNCOMMENT this line after backend is deployed
 dev_dependencies:

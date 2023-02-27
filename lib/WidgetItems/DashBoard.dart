@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:food_delivery_app/FirebaseFiles/samplemap.dart';
+import 'package:food_delivery_app/FirebaseFiles/googleMapUI.dart';
 import 'package:food_delivery_app/WidgetItems/DashboardBody.dart';
 import 'package:food_delivery_app/WidgetItems/Header.dart';
 import 'package:food_delivery_app/Pages/DiningScreen.dart';
@@ -28,7 +28,7 @@ class _UiDashBoardState extends State<UiDashBoard> {
     const DashboardBody(),
     const DiningScreen(),
     const Groceries(),
-      samplemap(),
+    const  googlemapUI(),
   
   ];
 @override
@@ -39,20 +39,32 @@ super.initState();
   @override
   Widget build(BuildContext context) {
     Widget child = Container();
-    _sendCurrentTabToAnalytics();
+    
     switch (_selectedIndex) {
       case 0:
+       analytics.setCurrentScreen(
+      screenName: 'Dashboard',
+    );
         child = _screens[0];
         break;
 
       case 1:
+      analytics.setCurrentScreen(
+      screenName: 'DiningScreen',
+    );
         child = _screens[1];
         break;
 
       case 2:
+      analytics.setCurrentScreen(
+      screenName: 'GroceriesScreen',
+    );
         child = _screens[2];
         break;
-         case 3:
+      case 3:
+       analytics.setCurrentScreen(
+      screenName: 'mapUIScreen',
+    );
         child = _screens[3];
         break;
      
@@ -97,12 +109,7 @@ super.initState();
     );
   }
 
-  void _sendCurrentTabToAnalytics() {
-
-    analytics.setCurrentScreen(
-      screenName: '${_screens[_selectedIndex]}',
-    );
-  }
+  
   void requestPermission() async {
 Map<Permission, PermissionStatus> statuses = await [
   Permission.location,
