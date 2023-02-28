@@ -132,6 +132,9 @@ final DynamicLinkParameters parameters = DynamicLinkParameters(
     link: Uri.parse('https://sites.google.com/view/fooddeliveryappibc/home'),
     androidParameters: AndroidParameters(
       packageName: 'com.food.delivery.food_delivery_app',
+      fallbackUrl: Uri.parse(
+          'https://play.google.com/store/apps/details?id=com.food.delivery.food_delivery_app'),
+    
     ),
 
 );
