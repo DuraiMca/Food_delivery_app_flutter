@@ -25,8 +25,9 @@ class _GoogleMapUIState extends State<googlemapUI> {
 
   @override
   void initState() {
+     setMarkerIcon().then((value) => _addMarker());
     super.initState();
-    setMarkerIcon().then((value) => _addMarker());
+   
   }
 
   @override
@@ -37,6 +38,7 @@ class _GoogleMapUIState extends State<googlemapUI> {
 
   @override
   Widget build(BuildContext context) {
+    
     return GoogleMap(
       initialCameraPosition: startingPosition,
       zoomControlsEnabled: true,
