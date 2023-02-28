@@ -8,6 +8,7 @@ import 'package:food_delivery_app/Pages/DiningScreen.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../Pages/Groceries.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 
 class UiDashBoard extends StatefulWidget {
   final FirebaseAnalytics analytics;
@@ -34,6 +35,7 @@ class _UiDashBoardState extends State<UiDashBoard> {
 @override
 void initState() {
 requestPermission();
+ this.initDynamicLinks();
 super.initState();
 }
   @override
@@ -124,4 +126,20 @@ statuses.values.forEach((element) async {
 });
 
 }
+ Future<void> initDynamicLinks() async {
+final DynamicLinkParameters parameters = DynamicLinkParameters(
+    uriPrefix: 'https://fooddeliverysample.page.link/',
+    link: Uri.parse('https://sites.google.com/view/fooddeliveryappibc/home'),
+    androidParameters: AndroidParameters(
+      packageName: 'com.food.delivery.food_delivery_app',
+    ),
+
+);
+final dynamicLink =
+    await FirebaseDynamicLinks.instance.buildShortLink(parameters);
+    
+  final Uri dynamicUrl = dynamicLink.shortUrl;
+  print('Dynamic URL: $dynamicUrl');
+ }
+ 
 }
